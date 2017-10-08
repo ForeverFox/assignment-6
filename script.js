@@ -25,12 +25,12 @@ var i = 0;
 var oldestYear = speechesArray[0].year;
 var newestYear = speechesArray[0].year;
 
-while(i < speechesArray.length){
+while (i < speechesArray.length) {
   console.log("This speech is written by " + speechesArray[i].author);
   i++;
 };        
 
-
+// loop that checks which speech is oldest/newest
 for (i = 0; i < speechesArray.length; i++) {
   if (speechesArray[i].year < oldestYear) {
     oldestYear = speechesArray[i].year;
@@ -39,27 +39,29 @@ for (i = 0; i < speechesArray.length; i++) {
   }; 
 };
 
-/* In this case, regarding the window prompt functionality, there is no requirement to use the console.log within the while loop. I think you should maybe reconsider whether you want your console.log functions executing from within the loop. Note that code that follows the loop will still execute once the loop is finished - the `break` statement should only break us out of the while loop and not the entire click event. Consider setting some default variables before the loop runs, and then when you run your loop and your condition is met within that loop, set those variables again. After the loop has ran, try running another conditional check and execute either the correct log statement or the error warning statement. 
+/* loop that checks to see if author name is entered correctly by user
+for (i = 0; i < speechesArray.length; i++) {
+  if (favoriteSpeechPrompt === speechesArray[i].author) {
+    console.log(speechesArray[i].author + " was " + speechesArray[i].authorAge + "during this speech.");
+  } else {
+      console.log("Did you spell that correctly?");
+    };
+}; */
 
-Try for loop outside of function / add variables / ??
-
-*/
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
+
   favoriteSpeechPrompt = window.prompt('Which speech author is your favorite?');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+  
   for (i = 0; i < speechesArray.length; i++) {
-      if (favoriteSpeechPrompt === speechesArray[i].author) { 
-          console.log(speechesArray[i].author + " was " + speechesArray[i].authorAge + " during this speech.");
-      }
+    if(favoriteSpeechPrompt === speechesArray[i].author) {
+      console.log(speechesArray[i].author + " was " + speechesArray[i].authorAge + " during this speech.");
+    } else {
+      console.log("Did you spell that correctly?");
+    };
   };
 });
-
-
-/* if (favoriteSpeechPrompt !== speechesArray.author) {
-  console.log("Did you spell the author's name correctly?"); 
-}; */
 
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
