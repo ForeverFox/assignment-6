@@ -6,7 +6,7 @@ var churchillSpeech = {
       'authorAge': '66'
     },
     ghandiSpeech = {
-      'author': 'Ghandi', // It's supposed to be "Gandhi."
+      'author': 'Ghandi',
       'year': 1942,
       'yearIsBCE': false,
       'authorAge': '73'
@@ -30,7 +30,7 @@ while (i < speechesArray.length) {
   i++;
 };        
 
-// loop that checks which speech is oldest/newest
+// this loop checks which speech is oldest/newest in the array
 for (i = 0; i < speechesArray.length; i++) {
   if (speechesArray[i].year < oldestYear) {
     oldestYear = speechesArray[i].year;
@@ -39,26 +39,14 @@ for (i = 0; i < speechesArray.length; i++) {
   }; 
 };
 
-/* loop that checks to see if author name is entered correctly by user
-for (i = 0; i < speechesArray.length; i++) {
-  if (favoriteSpeechPrompt === speechesArray[i].author) {
-    console.log(speechesArray[i].author + " was " + speechesArray[i].authorAge + "during this speech.");
-  } else {
-      console.log("Did you spell that correctly?");
-    };
-}; */
-
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
-
   favoriteSpeechPrompt = window.prompt('Which speech author is your favorite?');
-  
+
   for (i = 0; i < speechesArray.length; i++) {
     if(favoriteSpeechPrompt === speechesArray[i].author) {
       console.log(speechesArray[i].author + " was " + speechesArray[i].authorAge + " during this speech.");
-    } else {
-      console.log("Did you spell that correctly?");
     };
   };
 });
@@ -67,6 +55,7 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
    console.log('This speech was written by ' + speechesArray[0].author + ' in ' + speechesArray[0].year);
+
    if (speechesArray[0].year <= oldestYear) {
       console.log("This is the oldest speech on the page.");
    } else if (speechesArray[0].year >= newestYear) {
